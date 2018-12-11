@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.img-content {
+    background-image: url("../assets/welcome-page.jpg");
+    background-size: cover;
+    background-repeat: 		no-repeat;
+    background-position:	top center; 
+
+    height:	100%;
+    width:	100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .img-content {
+        height:	calc(100%);
+        width:	calc(100%);
+    }
+}
+
