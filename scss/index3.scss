@@ -1,0 +1,286 @@
+html { 
+  background: url("../assets/christmas-tree.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+// letter scss
+
+@keyframes upthenscale {
+  0% {
+    transform: translateY(250px);
+  }
+  
+  50% {
+    transform: translateY(0);
+  }
+  
+  60% {
+    height: 100px;
+    width: 90px;
+    transform: translateY(0);
+  }
+  
+  100% { 
+    height:  250px;
+    width: 100%; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes scalethendown {
+  0% {
+    height:  250px;
+    width: 100%; 
+    transform: translateY(0);
+  }
+  
+  50% {
+    height: 100px;
+    width: 90px;
+    transform: translateY(0);
+  }
+  
+  60% {
+    transform: translateY(0);
+  }
+  
+  100% { 
+    transform: translateY(250px);
+  }
+}
+
+@keyframes waitfade {
+  0%, 50% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateY(310px) rotate(0);
+  }
+  
+  25% {
+    transform: translateY(310px) rotate(2deg);
+  }
+  
+  50% {
+    transform: translateY(310px) rotate(0deg);
+  }
+  
+  75% {
+    transform: translateY(310px) rotate(-2deg);
+  }
+  
+  100% {
+    transform: translateY(310px) rotate(0);
+  }
+}
+
+
+.pointer {
+  // original pointer
+  // margin-left:-10px;
+  // margin-top:-10px;
+  // width:20px;
+  // height:20px;
+  // border-radius:10px;
+  // background-color:#F00;
+  // position:fixed;
+
+  //letter
+  margin: 150px auto;
+  max-width: 350px;
+  height: 375px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.pointer--open .paper {
+  animation-name: upthenscale;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  background: #f1f0c3;
+}
+
+.pointer--close .paper {
+  animation-name: scalethendown;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
+.pointer--open .paper-content {
+  animation-name: waitfade;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  background: #f1f0c3;
+}
+
+.pointer--open .envelope {
+  animation: pause;
+}
+
+.paper-content {
+  color: #545454;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  padding: 25px;
+  opacity: 0;
+}
+
+.paper {
+  height: 50px;
+  width: 90px;
+  background: blue;
+  transform: translateY(250px);
+  margin: 0 auto;
+  transition: transform 0.3s 0.1s ease;
+  border-radius: 2px;
+  position: relative;
+}
+
+.envelope {
+  width: 94px;
+  height: 60px;
+  background: rgba(0,0,0,0);
+  position: relative;
+  margin: auto;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: box-shadow 0.3s ease;
+  transform: translateY(310px);
+  animation: wiggle 0.3s 0.2s infinite;
+  &:hover {
+    animation: pause;
+    & .envelope-paper {
+        transform: translateY(-20px);
+    }
+    & .envelope-flap {
+      transform: translateY(-45px);
+    }
+    & .envelope-detail::after {
+      visibility: hidden;
+    }
+  }
+}
+// background: #f1f0c3;
+
+.envelope-paper {
+  height: 50px;
+  width: 90px;
+  background: rgba(0,0,0,0);
+  transform: translateY(0);
+  margin: 0 auto;
+  transition: transform 0.3s 0.1s ease;
+  border-radius: 2px;
+  position: absolute;
+  border: 2px solid transparent;
+}
+
+.pointer--open .envelope-paper {
+  visibility: hidden;
+}
+
+.pointer--open .envelope-detail::after {
+   visibility: hidden;
+ }
+
+
+.pointer--close .envelope-paper {
+  visibility: hidden;
+}
+
+.envelope-flap {
+  content: '';
+  width: 0; 
+  height: 0; 
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 45px solid rgba(0,0,0,0);
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  transform: translateY(0);
+}
+
+.pointer--open .envelope-flap {
+  transform: translateY(-45px);
+}
+
+.pointer--open .envelope-detail {
+  border-top: 2px solid rgba(0,0,0,0);
+}
+
+.envelope-detail {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    background: rgba(0,0,0,0);
+    border-top: 2px solid transparent;
+    &:before {
+    content: '';
+    width: 70px; 
+    height: 70px;
+    background: rgba(0,0,0,0);
+    display: inline-block;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    margin: auto;
+    transform: rotate(45deg);
+    border: 4px solid rgba(0,0,0,0);
+  }
+  &:after {
+    content: '';
+    width: 70px; 
+    height: 70px;
+    background: rgba(0,0,0,0);
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -45px;
+    margin: auto;
+    transform: rotate(45deg);
+    border: 4px solid rgba(0,0,0,0);
+  }
+}
+
+.envelope__fold {
+  height: 25px;
+  width: 86px;
+  background: rgba(0,0,0,0);
+  border: 4px solid rgba(0,0,0,0);
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.paper-close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
