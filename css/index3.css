@@ -91,11 +91,17 @@ html {
   animation-fill-mode: forwards;
 }
 
+.pointer--close .paper-content {
+  pointer-events: none;
+}
+
 .pointer--open .paper-content {
   animation-name: waitfade;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   background: #f1f0c3;
+  width: 200px;
+  height: 200px;
 }
 
 .pointer--open .envelope {
@@ -110,8 +116,8 @@ html {
   font-weight: 900;
   padding: 25px;
   opacity: 0;
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
 }
 
 .paper {

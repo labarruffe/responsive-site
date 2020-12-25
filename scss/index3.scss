@@ -92,10 +92,9 @@ html {
   width:100px;
   height:100px;
   border-radius:10px;
-  background-color:rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0);
   position:fixed;
   cursor: pointer;
-
   //letter
   // margin: 150px auto;
   // max-width: 350px;
@@ -118,11 +117,17 @@ html {
   animation-fill-mode: forwards;
 }
 
+.pointer--close .paper-content {
+  pointer-events:none
+}
+
 .pointer--open .paper-content {
   animation-name: waitfade;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   background: #f1f0c3;
+  width: 200px;
+  height: 200px;
 }
 
 .pointer--open .envelope {
@@ -137,8 +142,8 @@ html {
   font-weight: 900;
   padding: 25px;
   opacity: 0;
-  width: 200px;
-  height: 200px;
+  width: 50px;
+  height: 50px;
 }
 
 .paper {
