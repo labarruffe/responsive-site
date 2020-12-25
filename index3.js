@@ -1,7 +1,9 @@
 var image = { width: 1200, height: 600 };
 
 var target = new Array();
-target[0] = { x: 200, y: 250 };
+// POSICAO CORRETA
+target[0] = { x: 590, y: 530 };
+// target[0] = { x: 590, y: 230 };
 target[1] = { x: 284, y: 10 };
 target[2] = { x: 384, y: 188 };
 
@@ -45,25 +47,25 @@ function updatePointer() {
 
 
 //
-document.querySelector('.envelope').addEventListener('click', function(){
-    if (document.querySelector('.pointer').classList.contains('pointer--open')){
-      document.querySelector('.pointer').classList.remove('pointer--open');
-      document.querySelector('.pointer').classList.add('pointer--close');
-      setTimeout(function(){
-        document.querySelector('.pointer').classList.remove('pointer--close');
-      }, 600);    
-    } else {
+document.querySelector('.pointer').addEventListener('click', function(){
+    // if (document.querySelector('.pointer').classList.contains('pointer--open')){
+    //   document.querySelector('.pointer').classList.remove('pointer--open');
+    //   document.querySelector('.pointer').classList.add('pointer--close');
+    //   setTimeout(function(){
+    //     document.querySelector('.pointer').classList.remove('pointer--close');
+    //   }, 600);    
+    // } else {
       document.querySelector('.pointer').classList.remove('pointer--close');
       document.querySelector('.pointer').classList.add('pointer--open');
-    }
+    // }
   });
   
-  document.querySelector('.paper-close').addEventListener('click', function(){   document.querySelector('.pointer').classList.remove('pointer--open');
-    document.querySelector('.pointer').classList.add('pointer--close');
-    setTimeout(function(){
-      document.querySelector('.pointer').classList.remove('pointer--close');
-    }, 600);
-  });
+  // document.querySelector('.paper-close').addEventListener('click', function(){   document.querySelector('.pointer').classList.remove('pointer--open');
+  //   document.querySelector('.pointer').classList.add('pointer--close');
+  //   setTimeout(function(){
+  //     document.querySelector('.pointer').classList.remove('pointer--close');
+  //   }, 600);
+  // });
 
   //
 

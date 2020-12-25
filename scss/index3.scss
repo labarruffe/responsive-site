@@ -87,21 +87,22 @@ html {
 
 .pointer {
   // original pointer
-  // margin-left:-10px;
-  // margin-top:-10px;
-  // width:20px;
-  // height:20px;
-  // border-radius:10px;
-  // background-color:#F00;
-  // position:fixed;
+  margin-left:-10px;
+  margin-top:-10px;
+  width:100px;
+  height:100px;
+  border-radius:10px;
+  background-color:rgba(0,0,0,0);
+  position:fixed;
+  cursor: pointer;
 
   //letter
-  margin: 150px auto;
-  max-width: 350px;
-  height: 375px;
-  position: relative;
-  overflow: hidden;
-  display: block;
+  // margin: 150px auto;
+  // max-width: 350px;
+  // height: 375px;
+  // position: relative;
+  // overflow: hidden;
+  // display: block;
 }
 
 .pointer--open .paper {
@@ -129,17 +130,21 @@ html {
 }
 
 .paper-content {
+  margin-left:-10px;
+  margin-top:-300px;
   color: #545454;
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   padding: 25px;
   opacity: 0;
+  width: 200px;
+  height: 200px;
 }
 
 .paper {
   height: 50px;
   width: 90px;
-  background: blue;
+  background: rgba(0,0,0,0);
   transform: translateY(250px);
   margin: 0 auto;
   transition: transform 0.3s 0.1s ease;
@@ -217,6 +222,7 @@ html {
 
 .pointer--open .envelope-flap {
   transform: translateY(-45px);
+  width: 400px;
 }
 
 .pointer--open .envelope-detail {
